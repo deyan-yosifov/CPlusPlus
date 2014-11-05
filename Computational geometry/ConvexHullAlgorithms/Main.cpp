@@ -21,7 +21,8 @@ int main()
 	points.push_back(vec2d<>(-1, 5));
 	points.push_back(vec2d<>(4, 5));
 
-	//vec2d<>& sum = points[0] - points[1];
+	vec2d<>& sum = points[0] - points[1];
+	std::cout<<sum<<" - that is the sum"<<std::endl;
 	
 	ConvexHullAlgorithmBase* convexHullAlgorithm = new QuickHullAlgorithm();
 

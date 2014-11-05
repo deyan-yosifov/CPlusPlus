@@ -80,7 +80,6 @@
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="QuickHullAlgorithm.cpp" />
-    <ClCompile Include="vecta.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ConvexHullAlgorithmBase.h" />
