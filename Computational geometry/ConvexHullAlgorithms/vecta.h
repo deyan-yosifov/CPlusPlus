@@ -114,6 +114,148 @@ namespace vecta  {
 		}
 	};
 		
+
+	// ------------------------ declarations
+
+	template <typename N>
+	Number len(const vec2d<N>& p);
+
+	template <typename N>
+	Number dir(const vec2d<N>& p);
+
+	template <typename N>
+	vec2d<> unit(const vec2d<N>& p);
+
+	template <typename N>
+	vec2d<N> operator- (const vec2d<N>& p);
+
+	template <typename N>
+	vec2d<N> operator! (const vec2d<N>& p);
+
+	template <typename N>
+	vec2d<N> operator~ (const vec2d<N>& p);
+
+	template <typename N1, typename N2>
+	vec2d<N1> operator+ (const vec2d<N1>& p, const vec2d<N2>& q);
+
+	template <typename N1, typename N2>
+	vec2d<N1> operator- (const vec2d<N1>& p, const vec2d<N2>& q);
+
+	template <typename N1, typename N2>
+	vec2d<N2> operator* (const N1 c, const vec2d<N2>& q);
+
+	template <typename N1, typename N2>
+	vec2d<N1> operator* (const vec2d<N1>& p, const N2 c);
+
+	template <typename N1, typename N2>
+	vec2d<N1> operator/ (const vec2d<N1>& p, const N2 c);
+
+	template <typename N1, typename N2>
+	N1 operator* (const vec2d<N1>& p, const vec2d<N2>& q);
+
+	template <typename N1, typename N2>
+	N1 operator^ (const vec2d<N1>& p, const vec2d<N2>& q);
+
+	template <typename N>
+	N norm(const vec2d<N>& p);
+
+	template <typename N1, typename N2>
+	bool operator== (const vec2d<N1>& p, const vec2d<N2>& q);
+
+	template <typename N1, typename N2>
+	bool operator!= (const vec2d<N1>& p, const vec2d<N2>& q);
+
+	template <typename N1, typename N2>
+	bool operator< (const vec2d<N1>& p, const vec2d<N2>& q);
+
+	template <typename N1, typename N2>
+	bool operator<= (const vec2d<N1>& p, const vec2d<N2>& q);
+
+	template <typename N1, typename N2>
+	bool operator|| (const vec2d<N1>& p, const vec2d<N2>& q);
+
+	template <typename N1, typename N2>
+	bool operator>= (const vec2d<N1>& p, const vec2d<N2>& q);
+
+	template <typename N1, typename N2>
+	bool operator> (const vec2d<N1>& p, const vec2d<N2>& q);
+
+	template <typename N1, typename N2>
+	Number angle(const vec2d<N1>& u, const vec2d<N2>& v);
+
+	template <typename N1, typename N2>
+	vec2d<N1> operator& (const vec2d<N1>& p, const N2 & a);
+
+	template <typename N1, typename N2>
+	vec2d<N1> operator& (const vec2d<N1>& p, const vec2d<N2>& q);
+
+	template <typename N1, typename N2>
+	vec2d<N1> operator/ (const vec2d<N1>& p, const vec2d<N2>& q);
+
+	vec2d<> polar(const Number r, const Number a);
+
+	//----------------------------
+
+	quatrn operator* (const quatrn& b, const quatrn& a);
+
+	//----------------------------
+
+	template <typename N>
+	vec3d<N> operator- (const vec3d<N>& p);
+
+	template <typename N1, typename N2>
+	vec3d<N1> operator+ (const vec3d<N1>& p, const vec3d<N2>& q);
+
+	template <typename N1, typename N2>
+	vec3d<N1> operator- (const vec3d<N1>& p, const vec3d<N2>& q);
+
+	template <typename N1, typename N2>
+	vec3d<N2> operator* (const N1 c, const vec3d<N2>& q);
+
+	template <typename N1, typename N2>
+	vec3d<N1> operator* (const vec3d<N1>& p, const N2 c);
+
+	template <typename N1, typename N2>
+	vec3d<N1> operator/ (const vec3d<N1>& p, const N2 c);
+
+	template <typename N1, typename N2>
+	N1 operator* (const vec3d<N1>& p, const vec3d<N2>& q);
+
+	template <typename N1, typename N2>
+	vec3d<N1> operator^ (const vec3d<N1>& p, const vec3d<N2>& q);
+
+	template <typename N>
+	std::pair < vec3d<N>, vec3d<N> > operator~ (const vec3d<N>& p);
+
+	template <typename N>
+	N norm(const vec3d<N>& p);
+
+	template <typename N>
+	Number len(const vec3d<N>& p);
+
+	template <typename N>
+	vec3d<> unit(const vec3d<N>& p);
+
+	template <typename N1, typename N2>
+	bool operator== (const vec3d<N1>& p, const vec3d<N2>& q);
+
+	template <typename N1, typename N2>
+	bool operator!= (const vec3d<N1>& p, const vec3d<N2>& q);
+
+	template <typename N1, typename N2>
+	bool operator|| (const vec3d<N1>& p, const vec3d<N2>& q);
+
+	template <typename N1, typename N2>
+	Number angle(const vec3d<N1>& u, const vec3d<N2>& v);
+
+	template <typename N>
+	vec3d<N> operator& (const vec3d<N>& a, const quatrn& q);
+
+	template <typename N1, typename N2>
+	vec3d<N1> operator& (const vec3d<N1>& u, const std::pair< N2, vec3d<N2> >& p);
+
+	template <typename N1, typename N2>
+	std::pair<Number, quatrn> operator/ (const vec3d<N1>& u, const vec3d<N2>& v);
 }
 #undef GSQR
 #endif

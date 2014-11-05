@@ -21,6 +21,8 @@ int main()
 	points.push_back(vec2d<>(-1, 5));
 	points.push_back(vec2d<>(4, 5));
 
+	//vec2d<>& sum = points[0] - points[1];
+	
 	ConvexHullAlgorithmBase* convexHullAlgorithm = new QuickHullAlgorithm();
 
 	vector<vec2d<>>& convexHull = convexHullAlgorithm->CalculateConvexHull(points);
