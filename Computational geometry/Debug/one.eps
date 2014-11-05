@@ -1,0 +1,106 @@
+%!PS-Adobe-2.0 EPSF-3.0
+%%BoundingBox: (atend)
+%%CreationDate: (atend)
+%%Creator: sketchps v2.0 (August 2007)
+
+%%Page: 1 1
+/1mm  72 25.4 div  def
+
+/det-sqrt  {
+  aload pop pop pop
+  4 1 roll mul 3 1 roll mul sub abs sqrt
+}  bind def
+
+/mm2ct  {
+  matrix defaultmatrix det-sqrt
+  matrix currentmatrix det-sqrt
+  div
+  1mm mul mul
+}  bind def
+
+/stroke-mm  {
+  currentlinewidth
+  dup mm2ct setlinewidth
+  stroke
+  setlinewidth
+}  bind def
+
+/setxfrm  {
+  initmatrix
+  1mm dup scale
+  dup matrix scale
+  exch matrix rotate
+  matrix concatmatrix
+  dup concat
+  outer.scale dup scale
+  outer.shift.x outer.scale div 4 -1 roll add
+  outer.shift.y outer.scale div 4 -1 roll add
+  3 -1 roll itransform
+  translate
+}  bind def
+
+/dcircle  {3 copy 3 -1 roll add exch moveto 0 360 arc closepath}  bind def
+
+/dpnt  {
+  gsave
+  .3 setlinewidth
+  newpath
+  r mm2ct dcircle
+  gsave 1 setgray fill grestore stroke-mm
+  grestore
+}  def
+
+0 setlinecap
+2 setlinejoin
+
+/r .7 def
+
+/outer.scale 1 def
+/outer.shift.x 0 def
+/outer.shift.y 0 def
+
+0 0 0 1 setxfrm
+
+0.5 0.5 0.5 setrgbcolor
+
+
+1 setlinewidth
+
+[] 0 setdash
+newpath
+1 1 5 dcircle
+11 1 3 dcircle
+stroke-mm
+
+0 0 0 1 setxfrm
+
+0.5 0 0.5 setrgbcolor
+
+
+0.3 setlinewidth
+
+[] 0 setdash
+newpath
+5 -2 moveto 8.6 2.8 lineto
+2 -3.89898 moveto 11.6 -1.93939 lineto
+2 5.89898 moveto 11.6 3.93939 lineto
+5 4 moveto 8.6 -0.8 lineto
+stroke-mm
+
+0 0 0 1 setxfrm
+
+0 0 1 setrgbcolor
+
+5 -2 dpnt
+8.6 2.8 dpnt
+2 -3.89898 dpnt
+11.6 -1.93939 dpnt
+2 5.89898 dpnt
+11.6 3.93939 dpnt
+5 4 dpnt
+8.6 -0.8 dpnt
+
+%%Trailer
+%%BoundingBox: -19 -19 48 25
+%%CreationDate: 06 Nov 2014 01:17:49
+%%EOF

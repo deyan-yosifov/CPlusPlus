@@ -1,37 +1,13 @@
-﻿Build started 5.11.2014 г. 23:58:04.
+﻿Build started 6.11.2014 г. 1:01:53.
      1>Project "D:\Work\CPlusPlus\Computational geometry\TestVectaProject\TestVectaProject.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt Main.cpp vecta.cpp
-         vecta.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt Main.cpp
          Main.cpp
-     1>d:\work\cplusplus\computational geometry\testvectaproject\main.cpp(29): error C2784: ''unknown-type' std::operator -(std::move_iterator<_RanIt> &,const std::move_iterator<_RanIt2> &)' : could not deduce template argument for 'std::move_iterator<_RanIt> &' from 'vecta::vec2d<>'
-                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\xutility(1955) : see declaration of 'std::operator -'
-     1>d:\work\cplusplus\computational geometry\testvectaproject\main.cpp(29): error C2784: ''unknown-type' std::operator -(const std::reverse_iterator<_RanIt> &,const std::reverse_iterator<_RanIt2> &)' : could not deduce template argument for 'const std::reverse_iterator<_RanIt> &' from 'vecta::vec2d<>'
-                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\xutility(1234) : see declaration of 'std::operator -'
-     1>d:\work\cplusplus\computational geometry\testvectaproject\main.cpp(29): error C2784: ''unknown-type' std::operator -(const std::_Revranit<_RanIt,_Base> &,const std::_Revranit<_RanIt2,_Base2> &)' : could not deduce template argument for 'const std::_Revranit<_RanIt,_Base> &' from 'vecta::vec2d<>'
-                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\xutility(1041) : see declaration of 'std::operator -'
-     1>d:\work\cplusplus\computational geometry\testvectaproject\main.cpp(29): error C2676: binary '-' : 'vecta::vec2d<>' does not define this operator or a conversion to a type acceptable to the predefined operator
-     1>d:\work\cplusplus\computational geometry\testvectaproject\main.cpp(31): error C3861: 'norm': identifier not found
-     1>d:\work\cplusplus\computational geometry\testvectaproject\main.cpp(35): error C2677: binary '*' : no global operator found which takes type 'vecta::vec2d<>' (or there is no acceptable conversion)
-     1>d:\work\cplusplus\computational geometry\testvectaproject\main.cpp(35): error C2675: unary '~' : 'vecta::vec2d<>' does not define this operator or a conversion to a type acceptable to the predefined operator
-     1>d:\work\cplusplus\computational geometry\testvectaproject\main.cpp(41): error C2784: 'std::_String_iterator<_Mystr> std::operator +(_String_iterator<_Mystr>::difference_type,std::_String_iterator<_Mystr>)' : could not deduce template argument for 'std::_String_iterator<_Mystr>' from 'vecta::vec2d<>'
-                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring(420) : see declaration of 'std::operator +'
-     1>d:\work\cplusplus\computational geometry\testvectaproject\main.cpp(41): error C2784: 'std::_String_const_iterator<_Mystr> std::operator +(_String_const_iterator<_Mystr>::difference_type,std::_String_const_iterator<_Mystr>)' : could not deduce template argument for 'std::_String_const_iterator<_Mystr>' from 'vecta::vec2d<>'
-                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring(288) : see declaration of 'std::operator +'
-     1>d:\work\cplusplus\computational geometry\testvectaproject\main.cpp(41): error C2784: 'std::move_iterator<_RanIt> std::operator +(_Diff,const std::move_iterator<_RanIt> &)' : could not deduce template argument for 'const std::move_iterator<_RanIt> &' from 'vecta::vec2d<>'
-                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\xutility(1947) : see declaration of 'std::operator +'
-     1>d:\work\cplusplus\computational geometry\testvectaproject\main.cpp(41): error C2784: 'std::_Array_iterator<_Ty,_Size> std::operator +(_Array_iterator<_Ty,_Size>::difference_type,std::_Array_iterator<_Ty,_Size>)' : could not deduce template argument for 'std::_Array_iterator<_Ty,_Size>' from 'vecta::vec2d<>'
-                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\xutility(1801) : see declaration of 'std::operator +'
-     1>d:\work\cplusplus\computational geometry\testvectaproject\main.cpp(41): error C2784: 'std::_Array_const_iterator<_Ty,_Size> std::operator +(_Array_const_iterator<_Ty,_Size>::difference_type,std::_Array_const_iterator<_Ty,_Size>)' : could not deduce template argument for 'std::_Array_const_iterator<_Ty,_Size>' from 'vecta::vec2d<>'
-                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\xutility(1662) : see declaration of 'std::operator +'
-     1>d:\work\cplusplus\computational geometry\testvectaproject\main.cpp(41): error C2784: 'std::reverse_iterator<_RanIt> std::operator +(_Diff,const std::reverse_iterator<_RanIt> &)' : could not deduce template argument for 'const std::reverse_iterator<_RanIt> &' from 'vecta::vec2d<>'
-                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\xutility(1226) : see declaration of 'std::operator +'
-     1>d:\work\cplusplus\computational geometry\testvectaproject\main.cpp(41): error C2784: 'std::_Revranit<_RanIt,_Base> std::operator +(_Diff,const std::_Revranit<_RanIt,_Base> &)' : could not deduce template argument for 'const std::_Revranit<_RanIt,_Base> &' from 'vecta::vec2d<>'
-                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\xutility(1031) : see declaration of 'std::operator +'
-     1>d:\work\cplusplus\computational geometry\testvectaproject\main.cpp(41): error C2676: binary '+' : 'vecta::vec2d<>' does not define this operator or a conversion to a type acceptable to the predefined operator
-         Generating Code...
-     1>Done Building Project "D:\Work\CPlusPlus\Computational geometry\TestVectaProject\TestVectaProject.vcxproj" (Build target(s)) -- FAILED.
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\Work\CPlusPlus\Computational geometry\Debug\TestVectaProject.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\Work\CPlusPlus\Computational geometry\Debug\TestVectaProject.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\Work\CPlusPlus\Computational geometry\Debug\TestVectaProject.lib" /MACHINE:X86 Debug\Main.obj
+         TestVectaProject.vcxproj -> D:\Work\CPlusPlus\Computational geometry\Debug\TestVectaProject.exe
+     1>Done Building Project "D:\Work\CPlusPlus\Computational geometry\TestVectaProject\TestVectaProject.vcxproj" (Build target(s)).
 
-Build FAILED.
+Build succeeded.
 
-Time Elapsed 00:00:00.76
+Time Elapsed 00:00:00.71
