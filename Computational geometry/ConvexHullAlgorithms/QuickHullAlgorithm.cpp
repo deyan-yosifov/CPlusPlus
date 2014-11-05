@@ -10,9 +10,9 @@ QuickHullAlgorithm::~QuickHullAlgorithm()
 {
 }
 
-void QuickHullAlgorithm::SortByX(std::vector<vec2d<>>* points)
+void QuickHullAlgorithm::SortByX(std::vector<vec2d<>>& points)
 {
-	std::sort(points->begin(), points->end(),
+	std::sort(points.begin(), points.end(),
 		// Lambda expression begins
 		[](vec2d<> a, vec2d<> b)
 	{
@@ -21,17 +21,17 @@ void QuickHullAlgorithm::SortByX(std::vector<vec2d<>>* points)
 	);
 }
 
-std::vector<vec2d<>>* QuickHullAlgorithm::ExecuteQuickHullAlgorithm(std::vector<vec2d<>>* points)
+std::vector<vec2d<>>& QuickHullAlgorithm::ExecuteQuickHullAlgorithm(std::vector<vec2d<>>& points)
 {
 	QuickHullAlgorithm::SortByX(points);
 
 	return points;
 }
 
-std::vector<vec2d<>>* QuickHullAlgorithm::CalculateConvexHull(std::vector<vec2d<>>* points)
+std::vector<vec2d<>>& QuickHullAlgorithm::CalculateConvexHull(std::vector<vec2d<>>& points)
 {
 	QuickHullAlgorithm::SortByX(points);
 
-	std::vector<vec2d<>>* hullPoints = QuickHullAlgorithm::ExecuteQuickHullAlgorithm(points);
+	std::vector<vec2d<>>& hullPoints = QuickHullAlgorithm::ExecuteQuickHullAlgorithm(points);
 	return hullPoints;
 }

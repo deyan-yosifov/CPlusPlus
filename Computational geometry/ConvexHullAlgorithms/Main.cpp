@@ -23,15 +23,15 @@ int main()
 
 	ConvexHullAlgorithmBase* convexHullAlgorithm = new QuickHullAlgorithm();
 
-	vector<vec2d<>>* convexHull = convexHullAlgorithm->CalculateConvexHull(&points);
+	vector<vec2d<>>& convexHull = convexHullAlgorithm->CalculateConvexHull(points);
 
-	for (int i = 0; i < convexHull->size(); i++)
+	for (int i = 0; i < convexHull.size(); i++)
 	{
-		std::cout << "Point[" << i << "] = " << convexHull->at(i) << endl;
+		std::cout << "Point[" << i << "] = " << convexHull.at(i) << endl;
 	}
 	
 	std::cout << "points adress" << &points << endl;
-	std::cout << "graham adress" << convexHull << endl;
+	std::cout << "graham adress" << &convexHull << endl;
 
 	return 0;
 }
