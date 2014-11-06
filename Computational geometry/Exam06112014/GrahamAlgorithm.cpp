@@ -1,3 +1,6 @@
+// Deyan Yosifov
+// Computational Geometry Exam FMI 06.11.2014
+
 #include <iostream>
 #include <vector>
 #include <algorithm>
