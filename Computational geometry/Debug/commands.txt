@@ -1,0 +1,4 @@
+d:
+cd "D:\Work\CPlusPlus\Computational geometry\Debug"
+Exam06112014 < sampleInput.txt > examResult.txt
+sketchps < examResult.txt > examResult.eps

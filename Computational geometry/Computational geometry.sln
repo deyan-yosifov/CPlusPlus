@@ -5,6 +5,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ConvexHullAlgorithms", "Con
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TestVectaProject", "TestVectaProject\TestVectaProject.vcxproj", "{D372A332-9756-446D-933C-A7D2C78A3A0E}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Exam06112014", "Exam06112014\Exam06112014.vcxproj", "{3DA8D913-DC86-49E3-9F89-179417C68B0D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -19,6 +21,10 @@ Global
 		{D372A332-9756-446D-933C-A7D2C78A3A0E}.Debug|Win32.Build.0 = Debug|Win32
 		{D372A332-9756-446D-933C-A7D2C78A3A0E}.Release|Win32.ActiveCfg = Release|Win32
 		{D372A332-9756-446D-933C-A7D2C78A3A0E}.Release|Win32.Build.0 = Release|Win32
+		{3DA8D913-DC86-49E3-9F89-179417C68B0D}.Debug|Win32.ActiveCfg = Debug|Win32
+		{3DA8D913-DC86-49E3-9F89-179417C68B0D}.Debug|Win32.Build.0 = Debug|Win32
+		{3DA8D913-DC86-49E3-9F89-179417C68B0D}.Release|Win32.ActiveCfg = Release|Win32
+		{3DA8D913-DC86-49E3-9F89-179417C68B0D}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
