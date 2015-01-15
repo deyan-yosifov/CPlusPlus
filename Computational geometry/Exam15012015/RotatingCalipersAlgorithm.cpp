@@ -1,5 +1,5 @@
 // Deyan Yosifov
-// Computational Geometry Exam FMI 06.11.2014
+// Computational Geometry Exam FMI 15.01.2015
 
 #include <iostream>
 #include <vector>
@@ -78,18 +78,24 @@ void DrawCircle(vec2d<>& point, double radius, char* color)
 	cout<<"circles*"<<endl<<point<<' '<<radius<<endl;
 }
 
-void DrawResultSketchps(std::vector<vec2d<>>& points, vec2d<>& first, vec2d<>& second)
-{
+void DrawResultSketchps(std::vector<vec2d<>>& points,vector<IndexedPoint> diametralPoints)
+{	
 	cout<<"unit 10"<<endl;
+	int size = diametralPoints.size();
 
-	DrawCircle(first, 1, "red");
-	DrawCircle(second, 1, "green");
+	for(int i = 1; i < size; i+=2)
+	{
+		IndexedPoint& first = diametralPoints[i-1];
+		IndexedPoint& second = diametralPoints[i];
+		DrawCircle(first.Point, 1, "red");
+		DrawCircle(second.Point, 1, "green");
+	}  
 	
 	SetColor("black");
 	DrawPoints(points);
 	SetColor("blue");
 	SetWidth(1);
-	//DrawPolygone(points);	
+	DrawLines(diametralPoints);
 }
 
 std::vector<vec2d<>>& GetSampleInputSimple()
@@ -135,10 +141,16 @@ std::vector<vec2d<>>& GetInput()
 	return points;
 }
 
-void OuputResult(IndexedPoint& first, IndexedPoint& second)
+void OuputResult(vector<IndexedPoint> diametralPoints)
 {
-	cout<<(first.Index + 1)<<endl;
-	cout<<(second.Index + 1)<<endl;
+	int size = diametralPoints.size();
+
+	for(int i = 1; i < size; i+=2)
+	{
+		IndexedPoint& first = diametralPoints[i-1];
+		IndexedPoint& second = diametralPoints[i];
+		cout<<(first.Index + 1)<<" "<<(second.Index + 1)<<endl;
+	}
 }
 
 std::vector<IndexedPoint> FindDiametralPoints(std::vector<IndexedPoint>& indexedPoints, IndexedPoint& firstSidePoint, IndexedPoint& secondSidePoint)
@@ -182,7 +194,7 @@ void AddToMaxDiametralPoints(IndexedPoint sidePoint, IndexedPoint currentDiametr
 	diametralPoints.push_back(currentDiametral);
 }
 
-void UpdateMaxDiameterAndDiametralPoints(IndexedPoint sidePoint, IndexedPoint currentDiametral, std::vector<IndexedPoint>& diametralPoints, double& maxDiameterNorm, double& newMaxDiameterNorm)
+void ReplaceMaxDiameterAndDiametralPoints(IndexedPoint sidePoint, IndexedPoint currentDiametral, std::vector<IndexedPoint>& diametralPoints, double& maxDiameterNorm, double& newMaxDiameterNorm)
 {
 	maxDiameterNorm = newMaxDiameterNorm;
 	diametralPoints.clear();
@@ -196,29 +208,42 @@ void UpdateMaxDiameterAndDiametralPoints(std::vector<IndexedPoint>& sidePoints, 
 	for(int i = 0; i < diametralsCount; i++)
 	{
 		IndexedPoint point = currentDiametrals[i];
-
-		double first = norm(point.Point - sidePoints[0].Point);		
-		if(first > maxDiameterNorm)
+		IndexedPoint firstSidePoint = sidePoints[0];
+		double firstNorm = norm(point.Point - firstSidePoint.Point);		
+		if(firstNorm > maxDiameterNorm)
 		{
-			UpdateMaxDiameterAndDiametralPoints(sidePoints[0], point, diametralPoints, maxDiameterNorm, first);
+			ReplaceMaxDiameterAndDiametralPoints(firstSidePoint, point, diametralPoints, maxDiameterNorm, firstNorm);
 		}
-		else if(first == maxDiameterNorm)
+		else if(firstNorm == maxDiameterNorm)
 		{
-			AddToMaxDiametralPoints(sidePoints[0], point, diametralPoints);
+			AddToMaxDiametralPoints(firstSidePoint, point, diametralPoints);
 		}
-
-		double second = norm(point.Point - sidePoints[0].Point);		
-		if(second > maxDiameterNorm)
+		
+		IndexedPoint secondSidePoint = sidePoints[1];
+		double secondNorm = norm(point.Point - secondSidePoint.Point);		
+		if(secondNorm > maxDiameterNorm)
 		{
-			UpdateMaxDiameterAndDiametralPoints(sidePoints[0], point, diametralPoints, maxDiameterNorm, second);
+			ReplaceMaxDiameterAndDiametralPoints(secondSidePoint, point, diametralPoints, maxDiameterNorm, secondNorm);
 		}
-		else if(second == maxDiameterNorm)
+		else if(secondNorm == maxDiameterNorm)
 		{
-			AddToMaxDiametralPoints(sidePoints[0], point, diametralPoints);
+			AddToMaxDiametralPoints(secondSidePoint, point, diametralPoints);
 		}
 	}	
 }
 
+IndexedPoint& GetNextPoint(std::vector<IndexedPoint>& indexedPoints, IndexedPoint& point)
+{
+	int size = indexedPoints.size();
+	if(point.Index < size - 1)
+	{
+		return indexedPoints[point.Index + 1];
+	}
+	else
+	{
+		return indexedPoints[0];
+	}
+}
 
 
 std::vector<IndexedPoint> CalculateDiametralPoints(std::vector<vec2d<>>& points)
@@ -245,22 +270,47 @@ std::vector<IndexedPoint> CalculateDiametralPoints(std::vector<vec2d<>>& points)
 		UpdateMaxDiameterAndDiametralPoints(sidePoints, currentDiametrals, diametralPoints, maxDiameterNorm);
 
 		vec2d<> sideVector = sidePoints[1].Point - sidePoints[0].Point;
+		vec2d<> nextSideVector = GetNextPoint(indexedPoints, sidePoints[1]).Point - sidePoints[1].Point;
+		double sideAngle = abs(vecta::angle(sideVector, nextSideVector));
 
+		vec2d<> diametralVector = vec2d<>(-sideVector.x, -sideVector.y);
+		int currentDiametralsCount = currentDiametrals.size();
+		vec2d<> nextDiametralVector = GetNextPoint(indexedPoints, currentDiametrals[currentDiametralsCount - 1]).Point - currentDiametrals[currentDiametralsCount - 1].Point;
+		double diametralAngle = abs(vecta::angle(sideVector, nextSideVector));
+
+
+		if(sideAngle <= diametralAngle)
+		{
+			angle += sideAngle;
+			IndexedPoint first = sidePoints[1];
+			IndexedPoint second = GetNextPoint(indexedPoints, first);
+			sidePoints.clear();
+			sidePoints.push_back(first);
+			sidePoints.push_back(second);
+		}
+		else
+		{			
+			angle += diametralAngle;
+			IndexedPoint first = currentDiametrals[currentDiametralsCount - 1];
+			IndexedPoint second = GetNextPoint(indexedPoints, first);
+			sidePoints.clear();
+			sidePoints.push_back(first);
+			sidePoints.push_back(second);
+		}
 	}
-
 
 	return diametralPoints;
 }
 
 int main()  {
-	vector<vec2d<>> points = GetSampleInputSimple();
+	//vector<vec2d<>> points = GetSampleInputSimple();
 	//vector<vec2d<>> points = GetSampleInputComplex();
-	//vector<vec2d<>> points = GetInput();
+	vector<vec2d<>> points = GetInput();
 
 	vector<IndexedPoint> diametralPoints = CalculateDiametralPoints(points);
-
-	OuputResult(diametralPoints[0], diametralPoints[1]);
-	DrawResultSketchps(points, diametralPoints[0].Point, diametralPoints[1].Point);
+		
+	OuputResult(diametralPoints);
+	//DrawResultSketchps(points, diametralPoints);
 
 	return 0;
 }
