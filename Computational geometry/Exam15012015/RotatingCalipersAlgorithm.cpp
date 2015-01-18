@@ -190,8 +190,26 @@ std::vector<IndexedPoint> FindDiametralPoints(std::vector<IndexedPoint>& indexed
 
 void AddToMaxDiametralPoints(IndexedPoint sidePoint, IndexedPoint currentDiametral, std::vector<IndexedPoint>& diametralPoints)
 {
-	diametralPoints.push_back(sidePoint);
-	diametralPoints.push_back(currentDiametral);
+	bool isDiametralPairAlreadyAdded = false;
+	int size = diametralPoints.size();
+
+	for(int i = 1; i < size; i+=2)
+	{
+		if(sidePoint.Index == diametralPoints[i-1].Index)
+		{
+			isDiametralPairAlreadyAdded = (currentDiametral.Index == diametralPoints[i].Index);
+		}
+		else if(sidePoint.Index == diametralPoints[i].Index)
+		{
+			isDiametralPairAlreadyAdded = (currentDiametral.Index == diametralPoints[i-1].Index);
+		}
+	}
+
+	if(!isDiametralPairAlreadyAdded)
+	{
+		diametralPoints.push_back(sidePoint);
+		diametralPoints.push_back(currentDiametral);
+	}
 }
 
 void ReplaceMaxDiameterAndDiametralPoints(IndexedPoint sidePoint, IndexedPoint currentDiametral, std::vector<IndexedPoint>& diametralPoints, double& maxDiameterNorm, double& newMaxDiameterNorm)
@@ -276,7 +294,7 @@ std::vector<IndexedPoint> CalculateDiametralPoints(std::vector<vec2d<>>& points)
 		vec2d<> diametralVector = vec2d<>(-sideVector.x, -sideVector.y);
 		int currentDiametralsCount = currentDiametrals.size();
 		vec2d<> nextDiametralVector = GetNextPoint(indexedPoints, currentDiametrals[currentDiametralsCount - 1]).Point - currentDiametrals[currentDiametralsCount - 1].Point;
-		double diametralAngle = abs(vecta::angle(sideVector, nextSideVector));
+		double diametralAngle = abs(vecta::angle(diametralVector, nextDiametralVector));
 
 
 		if(sideAngle <= diametralAngle)
